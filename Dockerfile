@@ -5,7 +5,7 @@ USER root
 # Install packages where n8n actually looks for them
 RUN mkdir -p /home/node/.n8n/nodes/node_modules && \
     cd /home/node/.n8n/nodes/node_modules && \
-    npm install xlsx papaparse moment lodash && \
+    npm install xlsx && \
     chown -R node:node /home/node/.n8n
 
 # You can also install system packages if needed
