@@ -71,6 +71,14 @@ To add more npm packages:
 
 ## Technical Notes
 
-- **Global Installation**: Uses `npm install -g` which is the proven working method for n8n Docker containers
+- **Dual Installation Strategy**: Installs packages both in n8n's node_modules directory (where it looks) AND globally as backup
+- **Root Cause Fix**: `npm install -g` puts packages in `/usr/local/lib/node_modules/` but n8n looks in `/usr/local/lib/node_modules/n8n/node_modules/`
 - **Railway Optimization**: `railway.json` configures Railway to use the Dockerfile with optimal settings
 - **Docker Best Practices**: Switches to root user for installation, then back to node user for security
+
+## Troubleshooting
+
+If you still get "Cannot find module 'xlsx'" errors:
+1. Verify `NODE_FUNCTION_ALLOW_EXTERNAL=*` is set in Railway environment variables
+2. Check Railway deployment logs for any npm install errors
+3. The dual installation approach should cover both potential paths n8n might check
