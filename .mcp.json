@@ -1,0 +1,43 @@
+{
+  "mcpServers": {
+    "fetch": {
+      "type": "stdio",
+      "command": "uvx",
+      "args": [
+        "mcp-server-fetch"
+      ],
+      "env": {}
+    },
+    "context7": {
+      "type": "http",
+      "url": "https://mcp.context7.com/mcp",
+      "headers": {
+        "CONTEXT7_API_KEY": "ctx7sk-531853e8-d7aa-43db-996f-c5cee3514a28"
+      }
+    },
+    "sequential-thinking": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-sequential-thinking"
+      ]
+    },
+    "deep-research": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "deep-research-bug-fix-mcp"
+      ],
+      "env": {
+        "JINA_API_KEY": "jina_ea1378fadd544b72ac894967948e717cVl3qD5pu63gZ-KU3eE5fkNDEFhI0"
+      }
+    },
+    "railway": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@railway/mcp-server"
+      ]
+    }
+  }
+}

@@ -1,0 +1,54 @@
+# Railway n8n Infrastructure Configuration
+# This file documents Railway service IDs and configuration for MCP management
+# Use these IDs with Railway MCP commands for service-specific operations
+
+project:
+  name: pragmatic-growth
+  id: 2876e1ca-003b-4365-99c2-e56d7d40d7a6
+
+environment:
+  name: production
+  id: dda723c4-1d72-4cf4-957a-769ca5623cf3
+
+services:
+  n8n-primary:
+    id: 81e635c6-2570-4c1b-84df-25e004587f0f
+    private_domain: primary.railway.internal
+    public_domain: n8n.pragmaticgrowth.com
+    port: 5678
+    description: Main n8n instance (queue mode)
+
+  n8n-worker:
+    id: 2a232831-1903-49e5-8f64-b9c026fccca9
+    private_domain: worker.railway.internal
+    description: n8n queue worker for background execution
+
+  n8n-mcp:
+    id: 0430c739-b849-4c46-b37c-5c5da133eddb
+    private_domain: czlonkowskin8n-mcp-railwaylatest.railway.internal
+    public_domain: pg-n8n.up.railway.app
+    port: 8080
+    description: n8n MCP server for AI integration
+
+  n8n-postgres:
+    id: 97adab60-a2ab-4db9-8ff8-19535ec6f35d
+    private_domain: postgres.railway.internal
+    public_domain: n8n-postgres-production-a51a.up.railway.app
+    volume_id: 93e967f1-d495-425f-8ce6-8bf2ca5b5239
+    description: PostgreSQL database for n8n
+
+  n8n-redis:
+    id: 4c7dca91-befb-4a68-a18c-bf735b7c880d
+    private_domain: redis.railway.internal
+    volume_id: 374aabe7-5f1d-4511-89c3-6ab90ae4d107
+    description: Redis for n8n queue management
+
+# Internal connections (for reference)
+connections:
+  database:
+    host: postgres.railway.internal
+    port: 5432
+    database: railway
+  redis:
+    host: redis.railway.internal
+    port: 6379
