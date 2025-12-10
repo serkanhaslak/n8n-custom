@@ -1,0 +1,3224 @@
+{
+	"info": {
+		"_postman_id": "1d881efd-7615-4b65-b48c-aa1943b29027",
+		"name": "Conversations - Conversations API Collection",
+		"description": "Query and interact with existing Conversation threads, messages, and channels",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1466693"
+	},
+	"item": [
+		{
+			"name": "Conversations",
+			"item": [
+				{
+					"name": "Get conversations inboxes.",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "scope",
+									"value": "conversations.read conversations.write",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "https://api.hubapi.com/oauth/v1/token",
+									"type": "string"
+								},
+								{
+									"key": "authUrl",
+									"value": "https://app.hubspot.com/oauth/authorize",
+									"type": "string"
+								},
+								{
+									"key": "grant_type",
+									"value": "authorization_code",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/conversations/v3/conversations/inboxes?after=<string>&limit=<integer>&sort=<string>&sort=<string>&defaultPageLength=<integer>&archived=<boolean>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"conversations",
+								"v3",
+								"conversations",
+								"inboxes"
+							],
+							"query": [
+								{
+									"key": "after",
+									"value": "<string>",
+									"description": "The paging cursor token of the last successfully read resource will be returned as the `paging.next.after` JSON property of a paged response containing more results."
+								},
+								{
+									"key": "limit",
+									"value": "<integer>",
+									"description": "The maximum number of results to display per page."
+								},
+								{
+									"key": "sort",
+									"value": "<string>"
+								},
+								{
+									"key": "sort",
+									"value": "<string>"
+								},
+								{
+									"key": "defaultPageLength",
+									"value": "<integer>"
+								},
+								{
+									"key": "archived",
+									"value": "<boolean>"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "successful operation",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "<token>",
+										"description": "Added as a part of security scheme: oauth2"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/conversations/v3/conversations/inboxes?after=<string>&limit=<integer>&sort=<string>&defaultPageLength=<integer>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"conversations",
+										"v3",
+										"conversations",
+										"inboxes"
+									],
+									"query": [
+										{
+											"key": "after",
+											"value": "<string>",
+											"description": "The paging cursor token of the last successfully read resource will be returned as the `paging.next.after` JSON property of a paged response containing more results."
+										},
+										{
+											"key": "limit",
+											"value": "<integer>",
+											"description": "The maximum number of results to display per page."
+										},
+										{
+											"key": "sort",
+											"value": "<string>"
+										},
+										{
+											"key": "defaultPageLength",
+											"value": "<integer>"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"results\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"createdAt\": \"<dateTime>\",\n      \"updatedAt\": \"<dateTime>\",\n      \"archived\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"createdAt\": \"<dateTime>\",\n      \"updatedAt\": \"<dateTime>\",\n      \"archived\": \"<boolean>\",\n      \"type\": \"<string>\"\n    }\n  ],\n  \"total\": \"<integer>\",\n  \"paging\": {\n    \"next\": {\n      \"after\": \"<string>\",\n      \"link\": \"<string>\"\n    }\n  }\n}"
+						},
+						{
+							"name": "An error occurred.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									},
+									{
+										"key": "Authorization",
+										"value": "<token>",
+										"description": "Added as a part of security scheme: oauth2"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/conversations/v3/conversations/inboxes?after=<string>&limit=<integer>&sort=<string>&defaultPageLength=<integer>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"conversations",
+										"v3",
+										"conversations",
+										"inboxes"
+									],
+									"query": [
+										{
+											"key": "after",
+											"value": "<string>",
+											"description": "The paging cursor token of the last successfully read resource will be returned as the `paging.next.after` JSON property of a paged response containing more results."
+										},
+										{
+											"key": "limit",
+											"value": "<integer>",
+											"description": "The maximum number of results to display per page."
+										},
+										{
+											"key": "sort",
+											"value": "<string>"
+										},
+										{
+											"key": "defaultPageLength",
+											"value": "<integer>"
+										}
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"category\": \"<string>\",\n  \"correlationId\": \"<uuid>\",\n  \"message\": \"<string>\",\n  \"subCategory\": \"<string>\",\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"in\": \"<string>\",\n      \"code\": \"<string>\",\n      \"subCategory\": \"<string>\",\n      \"context\": {\n        \"eab\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"consectetur_29f\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"culpa_bd6\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"dolore5cd\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    },\n    {\n      \"message\": \"<string>\",\n      \"in\": \"<string>\",\n      \"code\": \"<string>\",\n      \"subCategory\": \"<string>\",\n      \"context\": {\n        \"pariatur_57\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"consequat_a\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"voluptate08b\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"idde\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    }\n  ],\n  \"context\": {\n    \"anim_a\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"links\": {\n    \"tempor_0\": \"<string>\",\n    \"ea__93\": \"<string>\"\n  }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get a single thread.",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "scope",
+									"value": "conversations.read conversations.write",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "https://api.hubapi.com/oauth/v1/token",
+									"type": "string"
+								},
+								{
+									"key": "authUrl",
+									"value": "https://app.hubspot.com/oauth/authorize",
+									"type": "string"
+								},
+								{
+									"key": "grant_type",
+									"value": "authorization_code",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/conversations/v3/conversations/threads/:threadId?archived=<boolean>&property=<string>&association=TICKET",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"conversations",
+								"v3",
+								"conversations",
+								"threads",
+								":threadId"
+							],
+							"query": [
+								{
+									"key": "archived",
+									"value": "<boolean>",
+									"description": "Whether to return only results that have been archived. Default is false."
+								},
+								{
+									"key": "property",
+									"value": "<string>"
+								},
+								{
+									"key": "association",
+									"value": "TICKET",
+									"description": "You can specify an association type here of `TICKET`. If this is set the response will included a thread associations object and associated ticket id if present. If there are no associations to a ticket with this conversation, then the thread associations object will not be present on the response. "
+								}
+							],
+							"variable": [
+								{
+									"key": "threadId",
+									"value": "<string>"
+								}
+							]
+						},
+						"description": "Returns a single thread."
+					},
+					"response": [
+						{
+							"name": "successful operation",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "<token>",
+										"description": "Added as a part of security scheme: oauth2"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/conversations/v3/conversations/threads/:threadId?archived=<boolean>&property=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"conversations",
+										"v3",
+										"conversations",
+										"threads",
+										":threadId"
+									],
+									"query": [
+										{
+											"key": "archived",
+											"value": "<boolean>",
+											"description": "Whether to return only results that have been archived. Default is false."
+										},
+										{
+											"key": "property",
+											"value": "<string>"
+										}
+									],
+									"variable": [
+										{
+											"key": "threadId"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"associatedContactId\": \"<string>\",\n  \"createdAt\": \"<dateTime>\",\n  \"id\": \"<string>\",\n  \"inboxId\": \"<string>\",\n  \"spam\": \"<boolean>\",\n  \"status\": \"CLOSED\",\n  \"closedAt\": \"<dateTime>\",\n  \"latestMessageTimestamp\": \"<dateTime>\",\n  \"latestMessageSentTimestamp\": \"<dateTime>\",\n  \"latestMessageReceivedTimestamp\": \"<dateTime>\",\n  \"assignedTo\": \"<string>\",\n  \"archived\": \"<boolean>\",\n  \"originalChannelAccountId\": \"<string>\",\n  \"originalChannelId\": \"<string>\"\n}"
+						},
+						{
+							"name": "An error occurred.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									},
+									{
+										"key": "Authorization",
+										"value": "<token>",
+										"description": "Added as a part of security scheme: oauth2"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/conversations/v3/conversations/threads/:threadId?archived=<boolean>&property=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"conversations",
+										"v3",
+										"conversations",
+										"threads",
+										":threadId"
+									],
+									"query": [
+										{
+											"key": "archived",
+											"value": "<boolean>",
+											"description": "Whether to return only results that have been archived. Default is false."
+										},
+										{
+											"key": "property",
+											"value": "<string>"
+										}
+									],
+									"variable": [
+										{
+											"key": "threadId"
+										}
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"category\": \"<string>\",\n  \"correlationId\": \"<uuid>\",\n  \"message\": \"<string>\",\n  \"subCategory\": \"<string>\",\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"in\": \"<string>\",\n      \"code\": \"<string>\",\n      \"subCategory\": \"<string>\",\n      \"context\": {\n        \"eab\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"consectetur_29f\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"culpa_bd6\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"dolore5cd\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    },\n    {\n      \"message\": \"<string>\",\n      \"in\": \"<string>\",\n      \"code\": \"<string>\",\n      \"subCategory\": \"<string>\",\n      \"context\": {\n        \"pariatur_57\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"consequat_a\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"voluptate08b\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"idde\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    }\n  ],\n  \"context\": {\n    \"anim_a\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"links\": {\n    \"tempor_0\": \"<string>\",\n    \"ea__93\": \"<string>\"\n  }\n}"
+						}
+					]
+				},
+				{
+					"name": "Archives a thread.",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "key",
+									"value": "private-app-legacy",
+									"type": "string"
+								},
+								{
+									"key": "value",
+									"value": "{{apiKey}}",
+									"type": "string"
+								},
+								{
+									"key": "in",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/conversations/v3/conversations/threads/:threadId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"conversations",
+								"v3",
+								"conversations",
+								"threads",
+								":threadId"
+							],
+							"variable": [
+								{
+									"key": "threadId",
+									"value": "<long>"
+								}
+							]
+						},
+						"description": "Archives a single thread. The thread will be permanently deleted 30 days after placed in an archived state."
+					},
+					"response": [
+						{
+							"name": "No content",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "private-app-legacy",
+										"value": "<API Key>",
+										"description": "Added as a part of security scheme: apikey"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/conversations/v3/conversations/threads/:threadId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"conversations",
+										"v3",
+										"conversations",
+										"threads",
+										":threadId"
+									],
+									"variable": [
+										{
+											"key": "threadId"
+										}
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "An error occurred.",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									},
+									{
+										"key": "private-app-legacy",
+										"value": "<API Key>",
+										"description": "Added as a part of security scheme: apikey"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/conversations/v3/conversations/threads/:threadId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"conversations",
+										"v3",
+										"conversations",
+										"threads",
+										":threadId"
+									],
+									"variable": [
+										{
+											"key": "threadId"
+										}
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"category\": \"<string>\",\n  \"correlationId\": \"<uuid>\",\n  \"message\": \"<string>\",\n  \"subCategory\": \"<string>\",\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"in\": \"<string>\",\n      \"code\": \"<string>\",\n      \"subCategory\": \"<string>\",\n      \"context\": {\n        \"eab\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"consectetur_29f\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"culpa_bd6\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"dolore5cd\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    },\n    {\n      \"message\": \"<string>\",\n      \"in\": \"<string>\",\n      \"code\": \"<string>\",\n      \"subCategory\": \"<string>\",\n      \"context\": {\n        \"pariatur_57\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"consequat_a\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"voluptate08b\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"idde\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    }\n  ],\n  \"context\": {\n    \"anim_a\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"links\": {\n    \"tempor_0\": \"<string>\",\n    \"ea__93\": \"<string>\"\n  }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update a thread.",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "key",
+									"value": "private-app-legacy",
+									"type": "string"
+								},
+								{
+									"key": "value",
+									"value": "{{apiKey}}",
+									"type": "string"
+								},
+								{
+									"key": "in",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"status\": \"CLOSED\",\n  \"archived\": \"<boolean>\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/conversations/v3/conversations/threads/:threadId?archived=<boolean>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"conversations",
+								"v3",
+								"conversations",
+								"threads",
+								":threadId"
+							],
+							"query": [
+								{
+									"key": "archived",
+									"value": "<boolean>",
+									"description": "Whether the thread to update is archived. Default is false. A thread's status property can not be updated if the thread is archived."
+								}
+							],
+							"variable": [
+								{
+									"key": "threadId",
+									"value": "<long>"
+								}
+							]
+						},
+						"description": "Updates a single thread. Either a thread's status can be updated, or the thread can be restored."
+					},
+					"response": [
+						{
+							"name": "successful operation",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "private-app-legacy",
+										"value": "<API Key>",
+										"description": "Added as a part of security scheme: apikey"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"status\": \"CLOSED\",\n  \"archived\": \"<boolean>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/conversations/v3/conversations/threads/:threadId?archived=<boolean>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"conversations",
+										"v3",
+										"conversations",
+										"threads",
+										":threadId"
+									],
+									"query": [
+										{
+											"key": "archived",
+											"value": "<boolean>",
+											"description": "Whether the thread to update is archived. Default is false. A thread's status property can not be updated if the thread is archived."
+										}
+									],
+									"variable": [
+										{
+											"key": "threadId"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"associatedContactId\": \"<string>\",\n  \"createdAt\": \"<dateTime>\",\n  \"id\": \"<string>\",\n  \"inboxId\": \"<string>\",\n  \"spam\": \"<boolean>\",\n  \"status\": \"CLOSED\",\n  \"closedAt\": \"<dateTime>\",\n  \"latestMessageTimestamp\": \"<dateTime>\",\n  \"latestMessageSentTimestamp\": \"<dateTime>\",\n  \"latestMessageReceivedTimestamp\": \"<dateTime>\",\n  \"assignedTo\": \"<string>\",\n  \"archived\": \"<boolean>\",\n  \"originalChannelAccountId\": \"<string>\",\n  \"originalChannelId\": \"<string>\"\n}"
+						},
+						{
+							"name": "An error occurred.",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									},
+									{
+										"key": "private-app-legacy",
+										"value": "<API Key>",
+										"description": "Added as a part of security scheme: apikey"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"status\": \"CLOSED\",\n  \"archived\": \"<boolean>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/conversations/v3/conversations/threads/:threadId?archived=<boolean>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"conversations",
+										"v3",
+										"conversations",
+										"threads",
+										":threadId"
+									],
+									"query": [
+										{
+											"key": "archived",
+											"value": "<boolean>",
+											"description": "Whether the thread to update is archived. Default is false. A thread's status property can not be updated if the thread is archived."
+										}
+									],
+									"variable": [
+										{
+											"key": "threadId"
+										}
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"category\": \"<string>\",\n  \"correlationId\": \"<uuid>\",\n  \"message\": \"<string>\",\n  \"subCategory\": \"<string>\",\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"in\": \"<string>\",\n      \"code\": \"<string>\",\n      \"subCategory\": \"<string>\",\n      \"context\": {\n        \"eab\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"consectetur_29f\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"culpa_bd6\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"dolore5cd\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    },\n    {\n      \"message\": \"<string>\",\n      \"in\": \"<string>\",\n      \"code\": \"<string>\",\n      \"subCategory\": \"<string>\",\n      \"context\": {\n        \"pariatur_57\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"consequat_a\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"voluptate08b\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"idde\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    }\n  ],\n  \"context\": {\n    \"anim_a\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"links\": {\n    \"tempor_0\": \"<string>\",\n    \"ea__93\": \"<string>\"\n  }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get the original content of a single message.",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "scope",
+									"value": "conversations.read conversations.write",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "https://api.hubapi.com/oauth/v1/token",
+									"type": "string"
+								},
+								{
+									"key": "authUrl",
+									"value": "https://app.hubspot.com/oauth/authorize",
+									"type": "string"
+								},
+								{
+									"key": "grant_type",
+									"value": "authorization_code",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/conversations/v3/conversations/threads/:threadId/messages/:messageId/original-content?property=<string>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"conversations",
+								"v3",
+								"conversations",
+								"threads",
+								":threadId",
+								"messages",
+								":messageId",
+								"original-content"
+							],
+							"query": [
+								{
+									"key": "property",
+									"value": "<string>"
+								}
+							],
+							"variable": [
+								{
+									"key": "threadId",
+									"value": "<long>"
+								},
+								{
+									"key": "messageId",
+									"value": "<string>"
+								}
+							]
+						},
+						"description": "Returns the complete original text and rich text bodies of a message. This will be different from the text and rich text in the message itself if the message's `truncationStatus` is anything other than `NOT_TRUNCATED`."
+					},
+					"response": [
+						{
+							"name": "successful operation",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "<token>",
+										"description": "Added as a part of security scheme: oauth2"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/conversations/v3/conversations/threads/:threadId/messages/:messageId/original-content?property=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"conversations",
+										"v3",
+										"conversations",
+										"threads",
+										":threadId",
+										"messages",
+										":messageId",
+										"original-content"
+									],
+									"query": [
+										{
+											"key": "property",
+											"value": "<string>"
+										}
+									],
+									"variable": [
+										{
+											"key": "threadId"
+										},
+										{
+											"key": "messageId"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"text\": \"<string>\",\n  \"richText\": \"<string>\"\n}"
+						},
+						{
+							"name": "An error occurred.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									},
+									{
+										"key": "Authorization",
+										"value": "<token>",
+										"description": "Added as a part of security scheme: oauth2"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/conversations/v3/conversations/threads/:threadId/messages/:messageId/original-content?property=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"conversations",
+										"v3",
+										"conversations",
+										"threads",
+										":threadId",
+										"messages",
+										":messageId",
+										"original-content"
+									],
+									"query": [
+										{
+											"key": "property",
+											"value": "<string>"
+										}
+									],
+									"variable": [
+										{
+											"key": "threadId"
+										},
+										{
+											"key": "messageId"
+										}
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"category\": \"<string>\",\n  \"correlationId\": \"<uuid>\",\n  \"message\": \"<string>\",\n  \"subCategory\": \"<string>\",\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"in\": \"<string>\",\n      \"code\": \"<string>\",\n      \"subCategory\": \"<string>\",\n      \"context\": {\n        \"eab\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"consectetur_29f\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"culpa_bd6\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"dolore5cd\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    },\n    {\n      \"message\": \"<string>\",\n      \"in\": \"<string>\",\n      \"code\": \"<string>\",\n      \"subCategory\": \"<string>\",\n      \"context\": {\n        \"pariatur_57\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"consequat_a\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"voluptate08b\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"idde\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    }\n  ],\n  \"context\": {\n    \"anim_a\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"links\": {\n    \"tempor_0\": \"<string>\",\n    \"ea__93\": \"<string>\"\n  }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get message history for a thread.",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "scope",
+									"value": "conversations.read conversations.write",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "https://api.hubapi.com/oauth/v1/token",
+									"type": "string"
+								},
+								{
+									"key": "authUrl",
+									"value": "https://app.hubspot.com/oauth/authorize",
+									"type": "string"
+								},
+								{
+									"key": "grant_type",
+									"value": "authorization_code",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/conversations/v3/conversations/threads/:threadId/messages?after=<string>&limit=<integer>&sort=<string>&sort=<string>&archived=<boolean>&property=<string>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"conversations",
+								"v3",
+								"conversations",
+								"threads",
+								":threadId",
+								"messages"
+							],
+							"query": [
+								{
+									"key": "after",
+									"value": "<string>",
+									"description": "The paging cursor token of the last successfully read resource will be returned as the `paging.next.after` JSON property of a paged response containing more results."
+								},
+								{
+									"key": "limit",
+									"value": "<integer>",
+									"description": "The maximum number of results to display per page."
+								},
+								{
+									"key": "sort",
+									"value": "<string>",
+									"description": "Sort direction. Valid options are `createdAt` (ascending), and `-createdAt` (descending, default)"
+								},
+								{
+									"key": "sort",
+									"value": "<string>",
+									"description": "Sort direction. Valid options are `createdAt` (ascending), and `-createdAt` (descending, default)"
+								},
+								{
+									"key": "archived",
+									"value": "<boolean>",
+									"description": "Whether to return only results that have been archived."
+								},
+								{
+									"key": "property",
+									"value": "<string>"
+								}
+							],
+							"variable": [
+								{
+									"key": "threadId",
+									"value": "<long>"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "successful operation",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "<token>",
+										"description": "Added as a part of security scheme: oauth2"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/conversations/v3/conversations/threads/:threadId/messages?after=<string>&limit=<integer>&sort=<string>&archived=<boolean>&property=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"conversations",
+										"v3",
+										"conversations",
+										"threads",
+										":threadId",
+										"messages"
+									],
+									"query": [
+										{
+											"key": "after",
+											"value": "<string>",
+											"description": "The paging cursor token of the last successfully read resource will be returned as the `paging.next.after` JSON property of a paged response containing more results."
+										},
+										{
+											"key": "limit",
+											"value": "<integer>",
+											"description": "The maximum number of results to display per page."
+										},
+										{
+											"key": "sort",
+											"value": "<string>",
+											"description": "Sort direction. Valid options are `createdAt` (ascending), and `-createdAt` (descending, default)"
+										},
+										{
+											"key": "archived",
+											"value": "<boolean>",
+											"description": "Whether to return only results that have been archived."
+										},
+										{
+											"key": "property",
+											"value": "<string>"
+										}
+									],
+									"variable": [
+										{
+											"key": "threadId"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"results\": [\n    {\n      \"value\": \"<Circular reference to #/components/schemas/PublicConversationsMessage detected>\"\n    },\n    {\n      \"value\": \"<Circular reference to #/components/schemas/PublicConversationsMessage detected>\"\n    }\n  ],\n  \"paging\": {\n    \"next\": {\n      \"after\": \"<string>\",\n      \"link\": \"<string>\"\n    }\n  }\n}"
+						},
+						{
+							"name": "An error occurred.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									},
+									{
+										"key": "Authorization",
+										"value": "<token>",
+										"description": "Added as a part of security scheme: oauth2"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/conversations/v3/conversations/threads/:threadId/messages?after=<string>&limit=<integer>&sort=<string>&archived=<boolean>&property=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"conversations",
+										"v3",
+										"conversations",
+										"threads",
+										":threadId",
+										"messages"
+									],
+									"query": [
+										{
+											"key": "after",
+											"value": "<string>",
+											"description": "The paging cursor token of the last successfully read resource will be returned as the `paging.next.after` JSON property of a paged response containing more results."
+										},
+										{
+											"key": "limit",
+											"value": "<integer>",
+											"description": "The maximum number of results to display per page."
+										},
+										{
+											"key": "sort",
+											"value": "<string>",
+											"description": "Sort direction. Valid options are `createdAt` (ascending), and `-createdAt` (descending, default)"
+										},
+										{
+											"key": "archived",
+											"value": "<boolean>",
+											"description": "Whether to return only results that have been archived."
+										},
+										{
+											"key": "property",
+											"value": "<string>"
+										}
+									],
+									"variable": [
+										{
+											"key": "threadId"
+										}
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"category\": \"<string>\",\n  \"correlationId\": \"<uuid>\",\n  \"message\": \"<string>\",\n  \"subCategory\": \"<string>\",\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"in\": \"<string>\",\n      \"code\": \"<string>\",\n      \"subCategory\": \"<string>\",\n      \"context\": {\n        \"eab\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"consectetur_29f\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"culpa_bd6\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"dolore5cd\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    },\n    {\n      \"message\": \"<string>\",\n      \"in\": \"<string>\",\n      \"code\": \"<string>\",\n      \"subCategory\": \"<string>\",\n      \"context\": {\n        \"pariatur_57\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"consequat_a\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"voluptate08b\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"idde\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    }\n  ],\n  \"context\": {\n    \"anim_a\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"links\": {\n    \"tempor_0\": \"<string>\",\n    \"ea__93\": \"<string>\"\n  }\n}"
+						}
+					]
+				},
+				{
+					"name": "Send a message to a thread.",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "key",
+									"value": "private-app-legacy",
+									"type": "string"
+								},
+								{
+									"key": "value",
+									"value": "{{apiKey}}",
+									"type": "string"
+								},
+								{
+									"key": "in",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"attachments\": [],\n  \"channelAccountId\": \"<string>\",\n  \"channelId\": \"<string>\",\n  \"recipients\": [\n    {\n      \"deliveryIdentifiers\": [\n        {\n          \"type\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"type\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ],\n      \"actorId\": \"<string>\",\n      \"name\": \"<string>\",\n      \"recipientField\": \"<string>\",\n      \"deliveryIdentifier\": {\n        \"type\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    },\n    {\n      \"deliveryIdentifiers\": [\n        {\n          \"type\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"type\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ],\n      \"actorId\": \"<string>\",\n      \"name\": \"<string>\",\n      \"recipientField\": \"<string>\",\n      \"deliveryIdentifier\": {\n        \"type\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    }\n  ],\n  \"senderActorId\": \"<string>\",\n  \"text\": \"<string>\",\n  \"type\": \"MESSAGE\",\n  \"richText\": \"<string>\",\n  \"subject\": \"<string>\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/conversations/v3/conversations/threads/:threadId/messages",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"conversations",
+								"v3",
+								"conversations",
+								"threads",
+								":threadId",
+								"messages"
+							],
+							"variable": [
+								{
+									"key": "threadId",
+									"value": "<long>"
+								}
+							]
+						},
+						"description": "Send a new message on a thread at the current timestamp."
+					},
+					"response": [
+						{
+							"name": "Default Response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "private-app-legacy",
+										"value": "<API Key>",
+										"description": "Added as a part of security scheme: apikey"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"attachments\": [],\n  \"channelAccountId\": \"<string>\",\n  \"channelId\": \"<string>\",\n  \"recipients\": [\n    {\n      \"deliveryIdentifiers\": [\n        {\n          \"type\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"type\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ],\n      \"actorId\": \"<string>\",\n      \"name\": \"<string>\",\n      \"recipientField\": \"<string>\",\n      \"deliveryIdentifier\": {\n        \"type\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    },\n    {\n      \"deliveryIdentifiers\": [\n        {\n          \"type\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"type\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ],\n      \"actorId\": \"<string>\",\n      \"name\": \"<string>\",\n      \"recipientField\": \"<string>\",\n      \"deliveryIdentifier\": {\n        \"type\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    }\n  ],\n  \"senderActorId\": \"<string>\",\n  \"text\": \"<string>\",\n  \"type\": \"MESSAGE\",\n  \"richText\": \"<string>\",\n  \"subject\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/conversations/v3/conversations/threads/:threadId/messages",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"conversations",
+										"v3",
+										"conversations",
+										"threads",
+										":threadId",
+										"messages"
+									],
+									"variable": [
+										{
+											"key": "threadId"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "null"
+						},
+						{
+							"name": "successful operation",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "private-app-legacy",
+										"value": "<API Key>",
+										"description": "Added as a part of security scheme: apikey"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"attachments\": [],\n  \"channelAccountId\": \"<string>\",\n  \"channelId\": \"<string>\",\n  \"recipients\": [\n    {\n      \"deliveryIdentifiers\": [\n        {\n          \"type\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"type\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ],\n      \"actorId\": \"<string>\",\n      \"name\": \"<string>\",\n      \"recipientField\": \"<string>\",\n      \"deliveryIdentifier\": {\n        \"type\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    },\n    {\n      \"deliveryIdentifiers\": [\n        {\n          \"type\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"type\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ],\n      \"actorId\": \"<string>\",\n      \"name\": \"<string>\",\n      \"recipientField\": \"<string>\",\n      \"deliveryIdentifier\": {\n        \"type\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    }\n  ],\n  \"senderActorId\": \"<string>\",\n  \"text\": \"<string>\",\n  \"type\": \"MESSAGE\",\n  \"richText\": \"<string>\",\n  \"subject\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/conversations/v3/conversations/threads/:threadId/messages",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"conversations",
+										"v3",
+										"conversations",
+										"threads",
+										":threadId",
+										"messages"
+									],
+									"variable": [
+										{
+											"key": "threadId"
+										}
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"value\": \"<Circular reference to #/components/schemas/PublicConversationsMessage detected>\"\n}"
+						},
+						{
+							"name": "An error occurred.",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									},
+									{
+										"key": "private-app-legacy",
+										"value": "<API Key>",
+										"description": "Added as a part of security scheme: apikey"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"attachments\": [],\n  \"channelAccountId\": \"<string>\",\n  \"channelId\": \"<string>\",\n  \"recipients\": [\n    {\n      \"deliveryIdentifiers\": [\n        {\n          \"type\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"type\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ],\n      \"actorId\": \"<string>\",\n      \"name\": \"<string>\",\n      \"recipientField\": \"<string>\",\n      \"deliveryIdentifier\": {\n        \"type\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    },\n    {\n      \"deliveryIdentifiers\": [\n        {\n          \"type\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"type\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ],\n      \"actorId\": \"<string>\",\n      \"name\": \"<string>\",\n      \"recipientField\": \"<string>\",\n      \"deliveryIdentifier\": {\n        \"type\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    }\n  ],\n  \"senderActorId\": \"<string>\",\n  \"text\": \"<string>\",\n  \"type\": \"MESSAGE\",\n  \"richText\": \"<string>\",\n  \"subject\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/conversations/v3/conversations/threads/:threadId/messages",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"conversations",
+										"v3",
+										"conversations",
+										"threads",
+										":threadId",
+										"messages"
+									],
+									"variable": [
+										{
+											"key": "threadId"
+										}
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"category\": \"<string>\",\n  \"correlationId\": \"<uuid>\",\n  \"message\": \"<string>\",\n  \"subCategory\": \"<string>\",\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"in\": \"<string>\",\n      \"code\": \"<string>\",\n      \"subCategory\": \"<string>\",\n      \"context\": {\n        \"eab\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"consectetur_29f\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"culpa_bd6\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"dolore5cd\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    },\n    {\n      \"message\": \"<string>\",\n      \"in\": \"<string>\",\n      \"code\": \"<string>\",\n      \"subCategory\": \"<string>\",\n      \"context\": {\n        \"pariatur_57\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"consequat_a\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"voluptate08b\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"idde\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    }\n  ],\n  \"context\": {\n    \"anim_a\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"links\": {\n    \"tempor_0\": \"<string>\",\n    \"ea__93\": \"<string>\"\n  }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get actors",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "scope",
+									"value": "conversations.read conversations.write",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "https://api.hubapi.com/oauth/v1/token",
+									"type": "string"
+								},
+								{
+									"key": "authUrl",
+									"value": "https://app.hubspot.com/oauth/authorize",
+									"type": "string"
+								},
+								{
+									"key": "grant_type",
+									"value": "authorization_code",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"inputs\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/conversations/v3/conversations/actors/batch/read?property=<string>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"conversations",
+								"v3",
+								"conversations",
+								"actors",
+								"batch",
+								"read"
+							],
+							"query": [
+								{
+									"key": "property",
+									"value": "<string>"
+								}
+							]
+						},
+						"description": "Resolve `ActorId`s to the underlying actors/participants."
+					},
+					"response": [
+						{
+							"name": "successful operation",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "<token>",
+										"description": "Added as a part of security scheme: oauth2"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"inputs\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/conversations/v3/conversations/actors/batch/read?property=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"conversations",
+										"v3",
+										"conversations",
+										"actors",
+										"batch",
+										"read"
+									],
+									"query": [
+										{
+											"key": "property",
+											"value": "<string>"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"completedAt\": \"<dateTime>\",\n  \"results\": [\n    {\n      \"id\": \"<string>\",\n      \"type\": \"AGENT\",\n      \"name\": \"<string>\",\n      \"email\": \"<string>\",\n      \"avatar\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"type\": \"AGENT\",\n      \"name\": \"<string>\",\n      \"email\": \"<string>\",\n      \"avatar\": \"<string>\"\n    }\n  ],\n  \"startedAt\": \"<dateTime>\",\n  \"status\": \"CANCELED\",\n  \"requestedAt\": \"<dateTime>\",\n  \"links\": {\n    \"nisi5\": \"<string>\"\n  }\n}"
+						},
+						{
+							"name": "multiple statuses",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "<token>",
+										"description": "Added as a part of security scheme: oauth2"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"inputs\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/conversations/v3/conversations/actors/batch/read?property=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"conversations",
+										"v3",
+										"conversations",
+										"actors",
+										"batch",
+										"read"
+									],
+									"query": [
+										{
+											"key": "property",
+											"value": "<string>"
+										}
+									]
+								}
+							},
+							"status": "Multi-Status (WebDAV) (RFC 4918)",
+							"code": 207,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"completedAt\": \"<dateTime>\",\n  \"results\": [\n    {\n      \"id\": \"<string>\",\n      \"type\": \"AGENT\",\n      \"name\": \"<string>\",\n      \"email\": \"<string>\",\n      \"avatar\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"type\": \"AGENT\",\n      \"name\": \"<string>\",\n      \"email\": \"<string>\",\n      \"avatar\": \"<string>\"\n    }\n  ],\n  \"startedAt\": \"<dateTime>\",\n  \"status\": \"COMPLETE\",\n  \"numErrors\": \"<integer>\",\n  \"errors\": [\n    {\n      \"category\": \"<string>\",\n      \"context\": {\n        \"minim_bc\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"laborisc\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"magna_9\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"errors\": [\n        {\n          \"message\": \"<string>\",\n          \"in\": \"<string>\",\n          \"code\": \"<string>\",\n          \"subCategory\": \"<string>\",\n          \"context\": {\n            \"eta\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"esseaf3\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          }\n        },\n        {\n          \"message\": \"<string>\",\n          \"in\": \"<string>\",\n          \"code\": \"<string>\",\n          \"subCategory\": \"<string>\",\n          \"context\": {\n            \"magna6f\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"voluptateef_\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"eiusmod7\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"quis1c\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          }\n        }\n      ],\n      \"links\": {\n        \"id3cf\": \"<string>\",\n        \"laborum_ea5\": \"<string>\"\n      },\n      \"message\": \"<string>\",\n      \"status\": \"<string>\",\n      \"id\": \"<string>\",\n      \"subCategory\": {}\n    },\n    {\n      \"category\": \"<string>\",\n      \"context\": {\n        \"occaecat7c\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"dolorb94\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"consequat__6_\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"sed_977\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"errors\": [\n        {\n          \"message\": \"<string>\",\n          \"in\": \"<string>\",\n          \"code\": \"<string>\",\n          \"subCategory\": \"<string>\",\n          \"context\": {\n            \"laborum3fa\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          }\n        },\n        {\n          \"message\": \"<string>\",\n          \"in\": \"<string>\",\n          \"code\": \"<string>\",\n          \"subCategory\": \"<string>\",\n          \"context\": {\n            \"Excepteura5\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"dolore_0\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          }\n        }\n      ],\n      \"links\": {\n        \"aute_31c\": \"<string>\",\n        \"aliqua_3_e\": \"<string>\"\n      },\n      \"message\": \"<string>\",\n      \"status\": \"<string>\",\n      \"id\": \"<string>\",\n      \"subCategory\": {}\n    }\n  ],\n  \"requestedAt\": \"<dateTime>\",\n  \"links\": {\n    \"eu_9e\": \"<string>\"\n  }\n}"
+						},
+						{
+							"name": "An error occurred.",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									},
+									{
+										"key": "Authorization",
+										"value": "<token>",
+										"description": "Added as a part of security scheme: oauth2"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"inputs\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/conversations/v3/conversations/actors/batch/read?property=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"conversations",
+										"v3",
+										"conversations",
+										"actors",
+										"batch",
+										"read"
+									],
+									"query": [
+										{
+											"key": "property",
+											"value": "<string>"
+										}
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"category\": \"<string>\",\n  \"correlationId\": \"<uuid>\",\n  \"message\": \"<string>\",\n  \"subCategory\": \"<string>\",\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"in\": \"<string>\",\n      \"code\": \"<string>\",\n      \"subCategory\": \"<string>\",\n      \"context\": {\n        \"eab\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"consectetur_29f\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"culpa_bd6\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"dolore5cd\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    },\n    {\n      \"message\": \"<string>\",\n      \"in\": \"<string>\",\n      \"code\": \"<string>\",\n      \"subCategory\": \"<string>\",\n      \"context\": {\n        \"pariatur_57\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"consequat_a\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"voluptate08b\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"idde\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    }\n  ],\n  \"context\": {\n    \"anim_a\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"links\": {\n    \"tempor_0\": \"<string>\",\n    \"ea__93\": \"<string>\"\n  }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get channel accounts.",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "scope",
+									"value": "conversations.read conversations.write",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "https://api.hubapi.com/oauth/v1/token",
+									"type": "string"
+								},
+								{
+									"key": "authUrl",
+									"value": "https://app.hubspot.com/oauth/authorize",
+									"type": "string"
+								},
+								{
+									"key": "grant_type",
+									"value": "authorization_code",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/conversations/v3/conversations/channel-accounts?channelId=<integer>&channelId=<integer>&inboxId=<integer>&inboxId=<integer>&after=<string>&limit=<integer>&sort=<string>&sort=<string>&defaultPageLength=<integer>&archived=<boolean>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"conversations",
+								"v3",
+								"conversations",
+								"channel-accounts"
+							],
+							"query": [
+								{
+									"key": "channelId",
+									"value": "<integer>",
+									"description": "Limits results to channel accounts within a particular channel."
+								},
+								{
+									"key": "channelId",
+									"value": "<integer>",
+									"description": "Limits results to channel accounts within a particular channel."
+								},
+								{
+									"key": "inboxId",
+									"value": "<integer>",
+									"description": "Limits results to channel accounts within a particular inbox."
+								},
+								{
+									"key": "inboxId",
+									"value": "<integer>",
+									"description": "Limits results to channel accounts within a particular inbox."
+								},
+								{
+									"key": "after",
+									"value": "<string>",
+									"description": "The paging cursor token of the last successfully read resource will be returned as the `paging.next.after` JSON property of a paged response containing more results."
+								},
+								{
+									"key": "limit",
+									"value": "<integer>",
+									"description": "The maximum number of results to display per page."
+								},
+								{
+									"key": "sort",
+									"value": "<string>"
+								},
+								{
+									"key": "sort",
+									"value": "<string>"
+								},
+								{
+									"key": "defaultPageLength",
+									"value": "<integer>"
+								},
+								{
+									"key": "archived",
+									"value": "<boolean>"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "successful operation",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "<token>",
+										"description": "Added as a part of security scheme: oauth2"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/conversations/v3/conversations/channel-accounts?channelId=<integer>&inboxId=<integer>&after=<string>&limit=<integer>&sort=<string>&defaultPageLength=<integer>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"conversations",
+										"v3",
+										"conversations",
+										"channel-accounts"
+									],
+									"query": [
+										{
+											"key": "channelId",
+											"value": "<integer>",
+											"description": "Limits results to channel accounts within a particular channel."
+										},
+										{
+											"key": "inboxId",
+											"value": "<integer>",
+											"description": "Limits results to channel accounts within a particular inbox."
+										},
+										{
+											"key": "after",
+											"value": "<string>",
+											"description": "The paging cursor token of the last successfully read resource will be returned as the `paging.next.after` JSON property of a paged response containing more results."
+										},
+										{
+											"key": "limit",
+											"value": "<integer>",
+											"description": "The maximum number of results to display per page."
+										},
+										{
+											"key": "sort",
+											"value": "<string>"
+										},
+										{
+											"key": "defaultPageLength",
+											"value": "<integer>"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"results\": [\n    {\n      \"id\": \"<string>\",\n      \"channelId\": \"<string>\",\n      \"name\": \"<string>\",\n      \"inboxId\": \"<string>\",\n      \"active\": \"<boolean>\",\n      \"authorized\": \"<boolean>\",\n      \"createdAt\": \"<dateTime>\",\n      \"deliveryIdentifier\": {\n        \"type\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      \"archived\": \"<boolean>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"channelId\": \"<string>\",\n      \"name\": \"<string>\",\n      \"inboxId\": \"<string>\",\n      \"active\": \"<boolean>\",\n      \"authorized\": \"<boolean>\",\n      \"createdAt\": \"<dateTime>\",\n      \"deliveryIdentifier\": {\n        \"type\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      \"archived\": \"<boolean>\"\n    }\n  ],\n  \"total\": \"<integer>\",\n  \"paging\": {\n    \"next\": {\n      \"after\": \"<string>\",\n      \"link\": \"<string>\"\n    }\n  }\n}"
+						},
+						{
+							"name": "An error occurred.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									},
+									{
+										"key": "Authorization",
+										"value": "<token>",
+										"description": "Added as a part of security scheme: oauth2"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/conversations/v3/conversations/channel-accounts?channelId=<integer>&inboxId=<integer>&after=<string>&limit=<integer>&sort=<string>&defaultPageLength=<integer>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"conversations",
+										"v3",
+										"conversations",
+										"channel-accounts"
+									],
+									"query": [
+										{
+											"key": "channelId",
+											"value": "<integer>",
+											"description": "Limits results to channel accounts within a particular channel."
+										},
+										{
+											"key": "inboxId",
+											"value": "<integer>",
+											"description": "Limits results to channel accounts within a particular inbox."
+										},
+										{
+											"key": "after",
+											"value": "<string>",
+											"description": "The paging cursor token of the last successfully read resource will be returned as the `paging.next.after` JSON property of a paged response containing more results."
+										},
+										{
+											"key": "limit",
+											"value": "<integer>",
+											"description": "The maximum number of results to display per page."
+										},
+										{
+											"key": "sort",
+											"value": "<string>"
+										},
+										{
+											"key": "defaultPageLength",
+											"value": "<integer>"
+										}
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"category\": \"<string>\",\n  \"correlationId\": \"<uuid>\",\n  \"message\": \"<string>\",\n  \"subCategory\": \"<string>\",\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"in\": \"<string>\",\n      \"code\": \"<string>\",\n      \"subCategory\": \"<string>\",\n      \"context\": {\n        \"eab\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"consectetur_29f\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"culpa_bd6\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"dolore5cd\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    },\n    {\n      \"message\": \"<string>\",\n      \"in\": \"<string>\",\n      \"code\": \"<string>\",\n      \"subCategory\": \"<string>\",\n      \"context\": {\n        \"pariatur_57\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"consequat_a\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"voluptate08b\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"idde\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    }\n  ],\n  \"context\": {\n    \"anim_a\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"links\": {\n    \"tempor_0\": \"<string>\",\n    \"ea__93\": \"<string>\"\n  }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get a single channel.",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "scope",
+									"value": "conversations.read conversations.write",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "https://api.hubapi.com/oauth/v1/token",
+									"type": "string"
+								},
+								{
+									"key": "authUrl",
+									"value": "https://app.hubspot.com/oauth/authorize",
+									"type": "string"
+								},
+								{
+									"key": "grant_type",
+									"value": "authorization_code",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/conversations/v3/conversations/channels/:channelId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"conversations",
+								"v3",
+								"conversations",
+								"channels",
+								":channelId"
+							],
+							"variable": [
+								{
+									"key": "channelId",
+									"value": "<string>"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "successful operation",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "<token>",
+										"description": "Added as a part of security scheme: oauth2"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/conversations/v3/conversations/channels/:channelId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"conversations",
+										"v3",
+										"conversations",
+										"channels",
+										":channelId"
+									],
+									"variable": [
+										{
+											"key": "channelId"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\"\n}"
+						},
+						{
+							"name": "An error occurred.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									},
+									{
+										"key": "Authorization",
+										"value": "<token>",
+										"description": "Added as a part of security scheme: oauth2"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/conversations/v3/conversations/channels/:channelId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"conversations",
+										"v3",
+										"conversations",
+										"channels",
+										":channelId"
+									],
+									"variable": [
+										{
+											"key": "channelId"
+										}
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"category\": \"<string>\",\n  \"correlationId\": \"<uuid>\",\n  \"message\": \"<string>\",\n  \"subCategory\": \"<string>\",\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"in\": \"<string>\",\n      \"code\": \"<string>\",\n      \"subCategory\": \"<string>\",\n      \"context\": {\n        \"eab\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"consectetur_29f\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"culpa_bd6\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"dolore5cd\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    },\n    {\n      \"message\": \"<string>\",\n      \"in\": \"<string>\",\n      \"code\": \"<string>\",\n      \"subCategory\": \"<string>\",\n      \"context\": {\n        \"pariatur_57\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"consequat_a\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"voluptate08b\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"idde\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    }\n  ],\n  \"context\": {\n    \"anim_a\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"links\": {\n    \"tempor_0\": \"<string>\",\n    \"ea__93\": \"<string>\"\n  }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get a single message.",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "scope",
+									"value": "conversations.read conversations.write",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "https://api.hubapi.com/oauth/v1/token",
+									"type": "string"
+								},
+								{
+									"key": "authUrl",
+									"value": "https://app.hubspot.com/oauth/authorize",
+									"type": "string"
+								},
+								{
+									"key": "grant_type",
+									"value": "authorization_code",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/conversations/v3/conversations/threads/:threadId/messages/:messageId?property=<string>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"conversations",
+								"v3",
+								"conversations",
+								"threads",
+								":threadId",
+								"messages",
+								":messageId"
+							],
+							"query": [
+								{
+									"key": "property",
+									"value": "<string>"
+								}
+							],
+							"variable": [
+								{
+									"key": "threadId",
+									"value": "<long>"
+								},
+								{
+									"key": "messageId",
+									"value": "<string>"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "successful operation",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "<token>",
+										"description": "Added as a part of security scheme: oauth2"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/conversations/v3/conversations/threads/:threadId/messages/:messageId?property=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"conversations",
+										"v3",
+										"conversations",
+										"threads",
+										":threadId",
+										"messages",
+										":messageId"
+									],
+									"query": [
+										{
+											"key": "property",
+											"value": "<string>"
+										}
+									],
+									"variable": [
+										{
+											"key": "threadId"
+										},
+										{
+											"key": "messageId"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"value\": \"<Circular reference to #/components/schemas/PublicConversationsMessage detected>\"\n}"
+						},
+						{
+							"name": "An error occurred.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									},
+									{
+										"key": "Authorization",
+										"value": "<token>",
+										"description": "Added as a part of security scheme: oauth2"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/conversations/v3/conversations/threads/:threadId/messages/:messageId?property=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"conversations",
+										"v3",
+										"conversations",
+										"threads",
+										":threadId",
+										"messages",
+										":messageId"
+									],
+									"query": [
+										{
+											"key": "property",
+											"value": "<string>"
+										}
+									],
+									"variable": [
+										{
+											"key": "threadId"
+										},
+										{
+											"key": "messageId"
+										}
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"category\": \"<string>\",\n  \"correlationId\": \"<uuid>\",\n  \"message\": \"<string>\",\n  \"subCategory\": \"<string>\",\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"in\": \"<string>\",\n      \"code\": \"<string>\",\n      \"subCategory\": \"<string>\",\n      \"context\": {\n        \"eab\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"consectetur_29f\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"culpa_bd6\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"dolore5cd\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    },\n    {\n      \"message\": \"<string>\",\n      \"in\": \"<string>\",\n      \"code\": \"<string>\",\n      \"subCategory\": \"<string>\",\n      \"context\": {\n        \"pariatur_57\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"consequat_a\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"voluptate08b\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"idde\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    }\n  ],\n  \"context\": {\n    \"anim_a\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"links\": {\n    \"tempor_0\": \"<string>\",\n    \"ea__93\": \"<string>\"\n  }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get channels.",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "scope",
+									"value": "conversations.read conversations.write",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "https://api.hubapi.com/oauth/v1/token",
+									"type": "string"
+								},
+								{
+									"key": "authUrl",
+									"value": "https://app.hubspot.com/oauth/authorize",
+									"type": "string"
+								},
+								{
+									"key": "grant_type",
+									"value": "authorization_code",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/conversations/v3/conversations/channels?after=<string>&limit=<integer>&sort=<string>&sort=<string>&defaultPageLength=<integer>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"conversations",
+								"v3",
+								"conversations",
+								"channels"
+							],
+							"query": [
+								{
+									"key": "after",
+									"value": "<string>",
+									"description": "The paging cursor token of the last successfully read resource will be returned as the `paging.next.after` JSON property of a paged response containing more results."
+								},
+								{
+									"key": "limit",
+									"value": "<integer>",
+									"description": "The maximum number of results to display per page."
+								},
+								{
+									"key": "sort",
+									"value": "<string>"
+								},
+								{
+									"key": "sort",
+									"value": "<string>"
+								},
+								{
+									"key": "defaultPageLength",
+									"value": "<integer>"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "successful operation",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "<token>",
+										"description": "Added as a part of security scheme: oauth2"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/conversations/v3/conversations/channels?after=<string>&limit=<integer>&sort=<string>&defaultPageLength=<integer>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"conversations",
+										"v3",
+										"conversations",
+										"channels"
+									],
+									"query": [
+										{
+											"key": "after",
+											"value": "<string>",
+											"description": "The paging cursor token of the last successfully read resource will be returned as the `paging.next.after` JSON property of a paged response containing more results."
+										},
+										{
+											"key": "limit",
+											"value": "<integer>",
+											"description": "The maximum number of results to display per page."
+										},
+										{
+											"key": "sort",
+											"value": "<string>"
+										},
+										{
+											"key": "defaultPageLength",
+											"value": "<integer>"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"results\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\"\n    }\n  ],\n  \"total\": \"<integer>\",\n  \"paging\": {\n    \"next\": {\n      \"after\": \"<string>\",\n      \"link\": \"<string>\"\n    }\n  }\n}"
+						},
+						{
+							"name": "An error occurred.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									},
+									{
+										"key": "Authorization",
+										"value": "<token>",
+										"description": "Added as a part of security scheme: oauth2"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/conversations/v3/conversations/channels?after=<string>&limit=<integer>&sort=<string>&defaultPageLength=<integer>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"conversations",
+										"v3",
+										"conversations",
+										"channels"
+									],
+									"query": [
+										{
+											"key": "after",
+											"value": "<string>",
+											"description": "The paging cursor token of the last successfully read resource will be returned as the `paging.next.after` JSON property of a paged response containing more results."
+										},
+										{
+											"key": "limit",
+											"value": "<integer>",
+											"description": "The maximum number of results to display per page."
+										},
+										{
+											"key": "sort",
+											"value": "<string>"
+										},
+										{
+											"key": "defaultPageLength",
+											"value": "<integer>"
+										}
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"category\": \"<string>\",\n  \"correlationId\": \"<uuid>\",\n  \"message\": \"<string>\",\n  \"subCategory\": \"<string>\",\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"in\": \"<string>\",\n      \"code\": \"<string>\",\n      \"subCategory\": \"<string>\",\n      \"context\": {\n        \"eab\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"consectetur_29f\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"culpa_bd6\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"dolore5cd\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    },\n    {\n      \"message\": \"<string>\",\n      \"in\": \"<string>\",\n      \"code\": \"<string>\",\n      \"subCategory\": \"<string>\",\n      \"context\": {\n        \"pariatur_57\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"consequat_a\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"voluptate08b\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"idde\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    }\n  ],\n  \"context\": {\n    \"anim_a\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"links\": {\n    \"tempor_0\": \"<string>\",\n    \"ea__93\": \"<string>\"\n  }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get a single actor.",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "scope",
+									"value": "conversations.read conversations.write",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "https://api.hubapi.com/oauth/v1/token",
+									"type": "string"
+								},
+								{
+									"key": "authUrl",
+									"value": "https://app.hubspot.com/oauth/authorize",
+									"type": "string"
+								},
+								{
+									"key": "grant_type",
+									"value": "authorization_code",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/conversations/v3/conversations/actors/:actorId?property=<string>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"conversations",
+								"v3",
+								"conversations",
+								"actors",
+								":actorId"
+							],
+							"query": [
+								{
+									"key": "property",
+									"value": "<string>"
+								}
+							],
+							"variable": [
+								{
+									"key": "actorId",
+									"value": "<string>"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "successful operation",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "<token>",
+										"description": "Added as a part of security scheme: oauth2"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/conversations/v3/conversations/actors/:actorId?property=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"conversations",
+										"v3",
+										"conversations",
+										"actors",
+										":actorId"
+									],
+									"query": [
+										{
+											"key": "property",
+											"value": "<string>"
+										}
+									],
+									"variable": [
+										{
+											"key": "actorId"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"id\": \"<string>\",\n  \"type\": \"AGENT\",\n  \"name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"avatar\": \"<string>\"\n}"
+						},
+						{
+							"name": "An error occurred.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									},
+									{
+										"key": "Authorization",
+										"value": "<token>",
+										"description": "Added as a part of security scheme: oauth2"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/conversations/v3/conversations/actors/:actorId?property=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"conversations",
+										"v3",
+										"conversations",
+										"actors",
+										":actorId"
+									],
+									"query": [
+										{
+											"key": "property",
+											"value": "<string>"
+										}
+									],
+									"variable": [
+										{
+											"key": "actorId"
+										}
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"category\": \"<string>\",\n  \"correlationId\": \"<uuid>\",\n  \"message\": \"<string>\",\n  \"subCategory\": \"<string>\",\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"in\": \"<string>\",\n      \"code\": \"<string>\",\n      \"subCategory\": \"<string>\",\n      \"context\": {\n        \"eab\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"consectetur_29f\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"culpa_bd6\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"dolore5cd\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    },\n    {\n      \"message\": \"<string>\",\n      \"in\": \"<string>\",\n      \"code\": \"<string>\",\n      \"subCategory\": \"<string>\",\n      \"context\": {\n        \"pariatur_57\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"consequat_a\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"voluptate08b\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"idde\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    }\n  ],\n  \"context\": {\n    \"anim_a\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"links\": {\n    \"tempor_0\": \"<string>\",\n    \"ea__93\": \"<string>\"\n  }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get threads.",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "scope",
+									"value": "conversations.read conversations.write",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "https://api.hubapi.com/oauth/v1/token",
+									"type": "string"
+								},
+								{
+									"key": "authUrl",
+									"value": "https://app.hubspot.com/oauth/authorize",
+									"type": "string"
+								},
+								{
+									"key": "grant_type",
+									"value": "authorization_code",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/conversations/v3/conversations/threads?after=<string>&limit=<integer>&sort=<string>&sort=<string>&inboxId=<integer>&inboxId=<integer>&associatedContactId=<long>&threadStatus=<string>&latestMessageTimestampAfter=<dateTime>&archived=<boolean>&property=<string>&association=TICKET",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"conversations",
+								"v3",
+								"conversations",
+								"threads"
+							],
+							"query": [
+								{
+									"key": "after",
+									"value": "<string>",
+									"description": "The paging cursor token of the last successfully read resource will be returned as the `paging.next.after` JSON property of a paged response containing more results."
+								},
+								{
+									"key": "limit",
+									"value": "<integer>",
+									"description": "The maximum number of results to display per page."
+								},
+								{
+									"key": "sort",
+									"value": "<string>",
+									"description": "Set the sort order of the response. Valid options are `id` (default) and `latestMessageTimestamp` (which requires the `latestMessageTimestampAfter` field to also be set). If you’re filtering threads by `associatedContactId` , you can sort in descending order by prepending - to the sort option (e.g., `-id` or `-latestMessageTimestampAfter` ). Otherwise, results are always returned in ascending order."
+								},
+								{
+									"key": "sort",
+									"value": "<string>",
+									"description": "Set the sort order of the response. Valid options are `id` (default) and `latestMessageTimestamp` (which requires the `latestMessageTimestampAfter` field to also be set). If you’re filtering threads by `associatedContactId` , you can sort in descending order by prepending - to the sort option (e.g., `-id` or `-latestMessageTimestampAfter` ). Otherwise, results are always returned in ascending order."
+								},
+								{
+									"key": "inboxId",
+									"value": "<integer>",
+									"description": "The ID of the conversations inbox you can optionally include to retrieve the associated messages for. This parameter cannot be used in conjunction with the `associatedContactId` property."
+								},
+								{
+									"key": "inboxId",
+									"value": "<integer>",
+									"description": "The ID of the conversations inbox you can optionally include to retrieve the associated messages for. This parameter cannot be used in conjunction with the `associatedContactId` property."
+								},
+								{
+									"key": "associatedContactId",
+									"value": "<long>",
+									"description": "The ID of a contact you can optionally include to retrieve a filtered list of conversations for. This parameter cannot be used in conjunction with the `inboxId` property."
+								},
+								{
+									"key": "threadStatus",
+									"value": "<string>",
+									"description": "The status of the associated conversations to filter by (either `OPEN` or `CLOSED`). This property must be provided if you’re including the `associatedContactId` query parameter."
+								},
+								{
+									"key": "latestMessageTimestampAfter",
+									"value": "<dateTime>",
+									"description": "The minimum `latestMessageTimestamp`. This is required only when sorting by `latestMessageTimestamp`."
+								},
+								{
+									"key": "archived",
+									"value": "<boolean>",
+									"description": "Whether to return only results that have been archived."
+								},
+								{
+									"key": "property",
+									"value": "<string>"
+								},
+								{
+									"key": "association",
+									"value": "TICKET",
+									"description": "You can specify an association type here of `TICKET`. If this is set the response will included a thread associations object and associated ticket id if present. If there are no associations to a ticket with this conversation, then the thread associations object will not be present on the response. "
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "successful operation",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "<token>",
+										"description": "Added as a part of security scheme: oauth2"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/conversations/v3/conversations/threads?after=<string>&limit=<integer>&sort=<string>&inboxId=<integer>&associatedContactId=<long>&threadStatus=<string>&latestMessageTimestampAfter=<dateTime>&archived=<boolean>&property=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"conversations",
+										"v3",
+										"conversations",
+										"threads"
+									],
+									"query": [
+										{
+											"key": "after",
+											"value": "<string>",
+											"description": "The paging cursor token of the last successfully read resource will be returned as the `paging.next.after` JSON property of a paged response containing more results."
+										},
+										{
+											"key": "limit",
+											"value": "<integer>",
+											"description": "The maximum number of results to display per page."
+										},
+										{
+											"key": "sort",
+											"value": "<string>",
+											"description": "Set the sort order of the response. Valid options are `id` (default) and `latestMessageTimestamp` (which requires the `latestMessageTimestampAfter` field to also be set). If you’re filtering threads by `associatedContactId` , you can sort in descending order by prepending - to the sort option (e.g., `-id` or `-latestMessageTimestampAfter` ). Otherwise, results are always returned in ascending order."
+										},
+										{
+											"key": "inboxId",
+											"value": "<integer>",
+											"description": "The ID of the conversations inbox you can optionally include to retrieve the associated messages for. This parameter cannot be used in conjunction with the `associatedContactId` property."
+										},
+										{
+											"key": "associatedContactId",
+											"value": "<long>",
+											"description": "The ID of a contact you can optionally include to retrieve a filtered list of conversations for. This parameter cannot be used in conjunction with the `inboxId` property."
+										},
+										{
+											"key": "threadStatus",
+											"value": "<string>",
+											"description": "The status of the associated conversations to filter by (either `OPEN` or `CLOSED`). This property must be provided if you’re including the `associatedContactId` query parameter."
+										},
+										{
+											"key": "latestMessageTimestampAfter",
+											"value": "<dateTime>",
+											"description": "The minimum `latestMessageTimestamp`. This is required only when sorting by `latestMessageTimestamp`."
+										},
+										{
+											"key": "archived",
+											"value": "<boolean>",
+											"description": "Whether to return only results that have been archived."
+										},
+										{
+											"key": "property",
+											"value": "<string>"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"results\": [\n    {\n      \"associatedContactId\": \"<string>\",\n      \"createdAt\": \"<dateTime>\",\n      \"id\": \"<string>\",\n      \"inboxId\": \"<string>\",\n      \"spam\": \"<boolean>\",\n      \"status\": \"OPEN\",\n      \"closedAt\": \"<dateTime>\",\n      \"latestMessageTimestamp\": \"<dateTime>\",\n      \"latestMessageSentTimestamp\": \"<dateTime>\",\n      \"latestMessageReceivedTimestamp\": \"<dateTime>\",\n      \"assignedTo\": \"<string>\",\n      \"archived\": \"<boolean>\",\n      \"originalChannelAccountId\": \"<string>\",\n      \"originalChannelId\": \"<string>\"\n    },\n    {\n      \"associatedContactId\": \"<string>\",\n      \"createdAt\": \"<dateTime>\",\n      \"id\": \"<string>\",\n      \"inboxId\": \"<string>\",\n      \"spam\": \"<boolean>\",\n      \"status\": \"CLOSED\",\n      \"closedAt\": \"<dateTime>\",\n      \"latestMessageTimestamp\": \"<dateTime>\",\n      \"latestMessageSentTimestamp\": \"<dateTime>\",\n      \"latestMessageReceivedTimestamp\": \"<dateTime>\",\n      \"assignedTo\": \"<string>\",\n      \"archived\": \"<boolean>\",\n      \"originalChannelAccountId\": \"<string>\",\n      \"originalChannelId\": \"<string>\"\n    }\n  ],\n  \"paging\": {\n    \"next\": {\n      \"after\": \"<string>\",\n      \"link\": \"<string>\"\n    }\n  }\n}"
+						},
+						{
+							"name": "An error occurred.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									},
+									{
+										"key": "Authorization",
+										"value": "<token>",
+										"description": "Added as a part of security scheme: oauth2"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/conversations/v3/conversations/threads?after=<string>&limit=<integer>&sort=<string>&inboxId=<integer>&associatedContactId=<long>&threadStatus=<string>&latestMessageTimestampAfter=<dateTime>&archived=<boolean>&property=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"conversations",
+										"v3",
+										"conversations",
+										"threads"
+									],
+									"query": [
+										{
+											"key": "after",
+											"value": "<string>",
+											"description": "The paging cursor token of the last successfully read resource will be returned as the `paging.next.after` JSON property of a paged response containing more results."
+										},
+										{
+											"key": "limit",
+											"value": "<integer>",
+											"description": "The maximum number of results to display per page."
+										},
+										{
+											"key": "sort",
+											"value": "<string>",
+											"description": "Set the sort order of the response. Valid options are `id` (default) and `latestMessageTimestamp` (which requires the `latestMessageTimestampAfter` field to also be set). If you’re filtering threads by `associatedContactId` , you can sort in descending order by prepending - to the sort option (e.g., `-id` or `-latestMessageTimestampAfter` ). Otherwise, results are always returned in ascending order."
+										},
+										{
+											"key": "inboxId",
+											"value": "<integer>",
+											"description": "The ID of the conversations inbox you can optionally include to retrieve the associated messages for. This parameter cannot be used in conjunction with the `associatedContactId` property."
+										},
+										{
+											"key": "associatedContactId",
+											"value": "<long>",
+											"description": "The ID of a contact you can optionally include to retrieve a filtered list of conversations for. This parameter cannot be used in conjunction with the `inboxId` property."
+										},
+										{
+											"key": "threadStatus",
+											"value": "<string>",
+											"description": "The status of the associated conversations to filter by (either `OPEN` or `CLOSED`). This property must be provided if you’re including the `associatedContactId` query parameter."
+										},
+										{
+											"key": "latestMessageTimestampAfter",
+											"value": "<dateTime>",
+											"description": "The minimum `latestMessageTimestamp`. This is required only when sorting by `latestMessageTimestamp`."
+										},
+										{
+											"key": "archived",
+											"value": "<boolean>",
+											"description": "Whether to return only results that have been archived."
+										},
+										{
+											"key": "property",
+											"value": "<string>"
+										}
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"category\": \"<string>\",\n  \"correlationId\": \"<uuid>\",\n  \"message\": \"<string>\",\n  \"subCategory\": \"<string>\",\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"in\": \"<string>\",\n      \"code\": \"<string>\",\n      \"subCategory\": \"<string>\",\n      \"context\": {\n        \"eab\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"consectetur_29f\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"culpa_bd6\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"dolore5cd\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    },\n    {\n      \"message\": \"<string>\",\n      \"in\": \"<string>\",\n      \"code\": \"<string>\",\n      \"subCategory\": \"<string>\",\n      \"context\": {\n        \"pariatur_57\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"consequat_a\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"voluptate08b\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"idde\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    }\n  ],\n  \"context\": {\n    \"anim_a\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"links\": {\n    \"tempor_0\": \"<string>\",\n    \"ea__93\": \"<string>\"\n  }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get a single channel account.",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "scope",
+									"value": "conversations.read conversations.write",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "https://api.hubapi.com/oauth/v1/token",
+									"type": "string"
+								},
+								{
+									"key": "authUrl",
+									"value": "https://app.hubspot.com/oauth/authorize",
+									"type": "string"
+								},
+								{
+									"key": "grant_type",
+									"value": "authorization_code",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/conversations/v3/conversations/channel-accounts/:channelAccountId?archived=false",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"conversations",
+								"v3",
+								"conversations",
+								"channel-accounts",
+								":channelAccountId"
+							],
+							"query": [
+								{
+									"key": "archived",
+									"value": "false"
+								}
+							],
+							"variable": [
+								{
+									"key": "channelAccountId",
+									"value": "<string>"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "successful operation",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "<token>",
+										"description": "Added as a part of security scheme: oauth2"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/conversations/v3/conversations/channel-accounts/:channelAccountId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"conversations",
+										"v3",
+										"conversations",
+										"channel-accounts",
+										":channelAccountId"
+									],
+									"variable": [
+										{
+											"key": "channelAccountId"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"id\": \"<string>\",\n  \"channelId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"inboxId\": \"<string>\",\n  \"active\": \"<boolean>\",\n  \"authorized\": \"<boolean>\",\n  \"createdAt\": \"<dateTime>\",\n  \"deliveryIdentifier\": {\n    \"type\": \"<string>\",\n    \"value\": \"<string>\"\n  },\n  \"archived\": \"<boolean>\"\n}"
+						},
+						{
+							"name": "An error occurred.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									},
+									{
+										"key": "Authorization",
+										"value": "<token>",
+										"description": "Added as a part of security scheme: oauth2"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/conversations/v3/conversations/channel-accounts/:channelAccountId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"conversations",
+										"v3",
+										"conversations",
+										"channel-accounts",
+										":channelAccountId"
+									],
+									"variable": [
+										{
+											"key": "channelAccountId"
+										}
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"category\": \"<string>\",\n  \"correlationId\": \"<uuid>\",\n  \"message\": \"<string>\",\n  \"subCategory\": \"<string>\",\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"in\": \"<string>\",\n      \"code\": \"<string>\",\n      \"subCategory\": \"<string>\",\n      \"context\": {\n        \"eab\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"consectetur_29f\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"culpa_bd6\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"dolore5cd\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    },\n    {\n      \"message\": \"<string>\",\n      \"in\": \"<string>\",\n      \"code\": \"<string>\",\n      \"subCategory\": \"<string>\",\n      \"context\": {\n        \"pariatur_57\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"consequat_a\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"voluptate08b\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"idde\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    }\n  ],\n  \"context\": {\n    \"anim_a\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"links\": {\n    \"tempor_0\": \"<string>\",\n    \"ea__93\": \"<string>\"\n  }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get a single conversations inbox.",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "scope",
+									"value": "conversations.read conversations.write",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "https://api.hubapi.com/oauth/v1/token",
+									"type": "string"
+								},
+								{
+									"key": "authUrl",
+									"value": "https://app.hubspot.com/oauth/authorize",
+									"type": "string"
+								},
+								{
+									"key": "grant_type",
+									"value": "authorization_code",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/conversations/v3/conversations/inboxes/:inboxId?archived=false",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"conversations",
+								"v3",
+								"conversations",
+								"inboxes",
+								":inboxId"
+							],
+							"query": [
+								{
+									"key": "archived",
+									"value": "false"
+								}
+							],
+							"variable": [
+								{
+									"key": "inboxId",
+									"value": "<string>"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "successful operation",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "<token>",
+										"description": "Added as a part of security scheme: oauth2"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/conversations/v3/conversations/inboxes/:inboxId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"conversations",
+										"v3",
+										"conversations",
+										"inboxes",
+										":inboxId"
+									],
+									"variable": [
+										{
+											"key": "inboxId"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\",\n  \"archived\": \"<boolean>\",\n  \"type\": \"<string>\"\n}"
+						},
+						{
+							"name": "An error occurred.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									},
+									{
+										"key": "Authorization",
+										"value": "<token>",
+										"description": "Added as a part of security scheme: oauth2"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/conversations/v3/conversations/inboxes/:inboxId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"conversations",
+										"v3",
+										"conversations",
+										"inboxes",
+										":inboxId"
+									],
+									"variable": [
+										{
+											"key": "inboxId"
+										}
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"category\": \"<string>\",\n  \"correlationId\": \"<uuid>\",\n  \"message\": \"<string>\",\n  \"subCategory\": \"<string>\",\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"in\": \"<string>\",\n      \"code\": \"<string>\",\n      \"subCategory\": \"<string>\",\n      \"context\": {\n        \"eab\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"consectetur_29f\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"culpa_bd6\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"dolore5cd\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    },\n    {\n      \"message\": \"<string>\",\n      \"in\": \"<string>\",\n      \"code\": \"<string>\",\n      \"subCategory\": \"<string>\",\n      \"context\": {\n        \"pariatur_57\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"consequat_a\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"voluptate08b\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"idde\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    }\n  ],\n  \"context\": {\n    \"anim_a\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"links\": {\n    \"tempor_0\": \"<string>\",\n    \"ea__93\": \"<string>\"\n  }\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://api.hubapi.com"
+		}
+	]
+}
