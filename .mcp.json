@@ -6,6 +6,17 @@
         "-y",
         "@railway/mcp-server"
       ]
+    },
+    "n8n-mcp": {
+      "command": "npx",
+      "args": ["n8n-mcp"],
+      "env": {
+        "MCP_MODE": "stdio",
+        "LOG_LEVEL": "error",
+        "DISABLE_CONSOLE_OUTPUT": "true",
+        "N8N_API_URL": "https://n8n.pragmaticgrowth.com",
+        "N8N_API_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhNGU0NTdjMy1mNGE1LTRkOWItYTg0ZC03ZGEwMjdiMjEzMDkiLCJpc3MiOiJuOG4iLCJhdWQiOiJwdWJsaWMtYXBpIiwianRpIjoiN2M4YzdkNTgtY2RiNy00YjMzLWExODYtZjcxZjg1ZWNkNDk4IiwiaWF0IjoxNzcyOTIwMzAyfQ.Hth4rvkggrOGbTEHq-v31fPt-2hL4CPI_EuTRAuSUh8"
+      }
     }
   }
 }
